@@ -13,7 +13,7 @@ public class Prova {
 		System.out.println("INFORME OS DADOS DO ÚLTIMO ANO ");
 		System.out.println();
 		
-		int compra, atraso, scoreCompra; 
+		int scoreInad = 0; compra, atraso, scoreCompra; 
 		double ticket, volumeCompra;
 		char formaPag;
 	
@@ -44,6 +44,18 @@ public class Prova {
 		}
 		System.out.println("Score de volume de compras = " + scoreCompra + " pontos");
 		System.out.println();
+		
+		
+				
+				if (atraso > 1 || compra == 0) {
+					scoreInad = 0;
+				} else if (compra > 0 && atraso == 1) {
+					scoreInad = 15;
+				} else if (compra > 0 && atraso == 0) {
+					scoreInad = 30;
+				}
+				
+				System.out.println("Score de inadimplência = " + scoreInad + " pontos");
 		
 		sc.close();
 	}
