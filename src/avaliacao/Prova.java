@@ -13,10 +13,9 @@ public class Prova {
 		System.out.println("INFORME OS DADOS DO ÚLTIMO ANO ");
 		System.out.println();
 		
-		int compra, atraso; 
-		double ticket;
+		int compra, atraso, scoreCompra; 
+		double ticket, volumeCompra;
 		char formaPag;
-		
 	
 		System.out.print("Quantas compras o cliente fez no último ano? ");
 		compra = sc.nextInt();
@@ -30,7 +29,21 @@ public class Prova {
 		formaPag = sc.next().charAt(0);
 		System.out.println();
 		
+		volumeCompra = compra * ticket;
 		
+		if (volumeCompra == 0.0) {
+			scoreCompra = 0;
+		} else if (volumeCompra <= 3000.0) {
+			if (compra == 1) {
+				scoreCompra = 20;
+			} else {
+				scoreCompra = 40;
+			}
+		} else {
+			scoreCompra = 60;
+		}
+		System.out.println("Score de volume de compras = " + scoreCompra + " pontos");
+		System.out.println();
 		
 		sc.close();
 	}
