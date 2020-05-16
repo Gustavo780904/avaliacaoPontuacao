@@ -13,9 +13,10 @@ public class Prova {
 		System.out.println("INFORME OS DADOS DO ÚLTIMO ANO ");
 		System.out.println();
 		
-		int scoreInad = 0, compra, atraso, scoreCompra; 
+		int compra, atraso, scoreCompra, scoreInad = 0, scorePag = 0, scoreTotal; 
 		double ticket, volumeCompra;
 		char formaPag;
+		String classFinal;
 	
 		System.out.print("Quantas compras o cliente fez no último ano? ");
 		compra = sc.nextInt();
@@ -51,9 +52,34 @@ public class Prova {
 				scoreInad = 15;
 		} else if (compra > 0 && atraso == 0) {
 				scoreInad = 30;
+		} else {
+			scoreInad = 0;
+		}
+				
+		if (compra == 0 && formaPag == 'D') {
+			scorePag = 5;
+		} else if (compra > 0 && formaPag == 'C') {
+			scorePag = 10;
+		} else {
+			scorePag = 0;
 		}
 				
 		System.out.println("Score de inadimplência = " + scoreInad + " pontos");
+		System.out.println("Score de forma de pagamento = " + scorePag + " pontos");
+		System.out.println();
+			
+		scoreTotal = scoreCompra + scoreInad + scorePag;
+		
+		if (scoreTotal > 0 && scoreTotal <= 25) {
+			classFinal = "BRONZE";
+		} else if (scoreTotal <= 75) {
+			classFinal = "PRATA";
+		} else {
+			classFinal = "OURO";
+		}
+		
+		System.out.println("Classificação final = CLIENTE " + classFinal);
+		
 		
 		sc.close();
 	}
